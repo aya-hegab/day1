@@ -1,0 +1,32 @@
+{% extends 'layouts/base.html' %} {% block content %}
+
+<h1>Book Details</h1>
+<div
+  class="d-flex align-items-center justify-content-center"
+  style="height: 70vh"
+>
+  <div class="card" style="width: 18rem">
+    <img
+      width="200"
+      height="200"
+      src="{{url_for('static', filename='books/images/'+book.image)}}"
+      class="card-img-top"
+      alt="..."
+    />
+
+    <div class="card-body">
+      <h5 class="card-title">{{book.name}}</h5>
+      <p class="card-text">price: {{book.price}}</p>
+      <p class="card-text">pages: {{book.no_of_pages}}</p>
+      <p class="card-text">created at: {{book.created_on}}</p>
+      <p class="card-text">updated at: {{book.updated_on}}</p>
+      <a
+        href="{{url_for('book.bookupdate', id=book.id)}}"
+        class="btn btn-primary"
+        >Update
+      </a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
